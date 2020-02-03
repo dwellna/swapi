@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarshipResupplyCalculator", "StarshipResupplyCalculator\StarshipResupplyCalculator.csproj", "{28EF7527-25A2-4CEC-90E5-6193F36F5B16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarshipResupplyCalculator", "StarshipResupplyCalculator\StarshipResupplyCalculator.csproj", "{28EF7527-25A2-4CEC-90E5-6193F36F5B16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarshipResupplyCalculator.Contracts", "StarshipResupplyCalculator.Contracts\StarshipResupplyCalculator.Contracts.csproj", "{29DE578B-2D92-4F47-A9C7-E634BEA4A773}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarshipResupplyCalculator.Tests", "StarshipResupplyCalculator.Tests\StarshipResupplyCalculator.Tests.csproj", "{03EFC649-4E15-4143-B1EE-6F47AA62D9BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarshipResupplyCalculator.Logic", "StarshipResupplyCalculator.Logic\StarshipResupplyCalculator.Logic.csproj", "{DA8872AB-4699-4FA8-9B9B-B4D823BDD4FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarshipResupplyCalculator.ApiClient", "StarshipResupplyCalculator.ApiClient\StarshipResupplyCalculator.ApiClient.csproj", "{FECF048C-ACD5-4C60-8DEB-3BF6066950AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{28EF7527-25A2-4CEC-90E5-6193F36F5B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28EF7527-25A2-4CEC-90E5-6193F36F5B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28EF7527-25A2-4CEC-90E5-6193F36F5B16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29DE578B-2D92-4F47-A9C7-E634BEA4A773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DE578B-2D92-4F47-A9C7-E634BEA4A773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DE578B-2D92-4F47-A9C7-E634BEA4A773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DE578B-2D92-4F47-A9C7-E634BEA4A773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03EFC649-4E15-4143-B1EE-6F47AA62D9BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03EFC649-4E15-4143-B1EE-6F47AA62D9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03EFC649-4E15-4143-B1EE-6F47AA62D9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03EFC649-4E15-4143-B1EE-6F47AA62D9BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8872AB-4699-4FA8-9B9B-B4D823BDD4FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8872AB-4699-4FA8-9B9B-B4D823BDD4FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8872AB-4699-4FA8-9B9B-B4D823BDD4FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8872AB-4699-4FA8-9B9B-B4D823BDD4FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FECF048C-ACD5-4C60-8DEB-3BF6066950AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FECF048C-ACD5-4C60-8DEB-3BF6066950AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FECF048C-ACD5-4C60-8DEB-3BF6066950AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FECF048C-ACD5-4C60-8DEB-3BF6066950AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

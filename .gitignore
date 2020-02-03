@@ -6,3 +6,12 @@
 /.vs/StarshipResupplyCalculator/DesignTimeBuild
 /StarshipResupplyCalculator/obj/Debug/netcoreapp3.1
 /StarshipResupplyCalculator/obj
+/StarshipResupplyCalculator/bin/Debug/netcoreapp3.1
+/StarshipResupplyCalculator.ApiClient/bin/Debug
+/StarshipResupplyCalculator.ApiClient/obj
+/StarshipResupplyCalculator.Contracts/bin/Debug/netstandard2.0
+/StarshipResupplyCalculator.Contracts/obj
+/StarshipResupplyCalculator.Logic/bin/Debug/netstandard2.0
+/StarshipResupplyCalculator.Logic/obj
+/StarshipResupplyCalculator.Tests/bin/Debug/netcoreapp3.1
+/StarshipResupplyCalculator.Tests/obj
