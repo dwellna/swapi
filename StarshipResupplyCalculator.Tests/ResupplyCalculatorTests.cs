@@ -1,11 +1,10 @@
 using Moq;
-using System;
-using Xunit;
 using StarshipResupplyCalculator.Contracts;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using StarshipResupplyCalculator.Logic;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace StarshipResupplyCalculator.Tests
 {
@@ -18,10 +17,12 @@ namespace StarshipResupplyCalculator.Tests
             client.Setup(c => c.GetStarships()).Returns(GetTestSharships());
             var calculator = new Calculator(client.Object);
             var stops = await calculator.CalculateStops(1000000).ToArrayAsync();
-            Assert.Equal(3, stops.Length);
+            Assert.Equal(5, stops.Length);
             Assert.Equal(9, stops[0].Stops);
             Assert.Equal(74, stops[1].Stops);
             Assert.Equal(11, stops[2].Stops);
+            Assert.Equal(-1, stops[3].Stops);
+            Assert.Equal(-1, stops[4].Stops);
         }
 
         private async IAsyncEnumerable<Starship> GetTestSharships()
