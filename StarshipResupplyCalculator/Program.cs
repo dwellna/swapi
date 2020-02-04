@@ -21,8 +21,8 @@ namespace StarshipResupplyCalculator
             }
 
             var client = new SwApiClient();
-            var calculator = new Calculator(client);
-            var shipsAndStops = calculator.CalculateStops(distance);
+            var calculator = new Calculator();
+            var shipsAndStops = calculator.CalculateStops(client.GetStarships(), distance);
             await foreach(var (Ship, Stops) in shipsAndStops)
             {
                 Console.WriteLine($"{Ship.Name}: {GetStopsString(Stops)}");

@@ -1,4 +1,3 @@
-using Moq;
 using StarshipResupplyCalculator.Contracts;
 using StarshipResupplyCalculator.Logic;
 using System.Collections.Generic;
@@ -13,10 +12,8 @@ namespace StarshipResupplyCalculator.Tests
         [Fact]
         public async Task CalculateStops()
         {
-            var client = new Mock<ISwApiClient>();
-            client.Setup(c => c.GetStarships()).Returns(GetTestSharships());
-            var calculator = new Calculator(client.Object);
-            var stops = await calculator.CalculateStops(1000000).ToArrayAsync();
+            var calculator = new Calculator();
+            var stops = await calculator.CalculateStops(GetTestSharships(), 1000000).ToArrayAsync();
             Assert.Equal(5, stops.Length);
             Assert.Equal(9, stops[0].Stops);
             Assert.Equal(74, stops[1].Stops);

@@ -12,22 +12,14 @@ namespace StarshipResupplyCalculator.Logic
     /// </summary>
     public class Calculator
     {
-        private ISwApiClient _apiClient;
-
-        /// <param name="apiClient"></param>
-        public Calculator(ISwApiClient apiClient)
-        {
-            _apiClient = apiClient;
-        }
-
         /// <summary>
         /// Calculates the stops all on swapi available starshops need to cover the given distance.
         /// </summary>
+        /// <param name="ships">The collection of starships to calculate the stops for.</param>
         /// <param name="distance">The distance to be covered.</param>
         /// <returns>A tuple containing the starship and the amount of stops necessary to cover the given distance.</returns>
-        public IAsyncEnumerable<(Starship Ship, int Stops)> CalculateStops(int distance)
+        public IAsyncEnumerable<(Starship Ship, int Stops)> CalculateStops(IAsyncEnumerable<Starship> ships, int distance)
         {
-            var ships = _apiClient.GetStarships();
             return ships.SelectAwait(ship => 
                 new ValueTask<(Starship, int)>(Task.FromResult(
                     (ship, Stops: GetStops(MGLTParser.Parse(ship.MGLT), ConsumableParser.Parse(ship.Consumables), distance)))));
