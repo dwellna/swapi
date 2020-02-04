@@ -10,19 +10,47 @@ namespace StarshipResupplyCalculator.Tests
     public class ResupplyCalculatorTests
     {
         [Fact]
-        public async Task CalculateStops()
+        public async Task GivenMilleniumFalconExpect9Stops()
         {
             var calculator = new Calculator();
-            var stops = await calculator.CalculateStops(GetTestSharships(), 1000000).ToArrayAsync();
-            Assert.Equal(5, stops.Length);
-            Assert.Equal(9, stops[0].Stops);
-            Assert.Equal(74, stops[1].Stops);
-            Assert.Equal(11, stops[2].Stops);
-            Assert.Equal(-1, stops[3].Stops);
-            Assert.Equal(-1, stops[4].Stops);
+            var shipAndStops = await calculator.CalculateStops(GetMilleniumFalcon(), 1000000).FirstAsync();
+            Assert.Equal(9, shipAndStops.Stops);
         }
 
-        private async IAsyncEnumerable<Starship> GetTestSharships()
+        [Fact]
+        public async Task GivenRebelTransportExpect11Stops()
+        {
+            var calculator = new Calculator();
+            var shipAndStops = await calculator.CalculateStops(GetRebelTransport(), 1000000).FirstAsync();
+            Assert.Equal(11, shipAndStops.Stops);
+        }
+
+        [Fact]
+        public async Task GivenYWingExpect74Stops()
+        {
+            var calculator = new Calculator();
+            var shipAndStops = await calculator.CalculateStops(GetYWing(), 1000000).FirstAsync();
+            Assert.Equal(74, shipAndStops.Stops);
+        }
+
+        [Fact]
+        public async Task GivenRepublicanCruiserExpectUnknownStops()
+        {
+            var calculator = new Calculator();
+            var shipAndStops = await calculator.CalculateStops(GetRepublicanCruiser(), 1000000).FirstAsync();
+            Assert.Equal(-1, shipAndStops.Stops);
+        }
+
+        [Fact]
+        public async Task GivenRepublicanFighterExpectUnknownStops()
+        {
+            var calculator = new Calculator();
+            var shipAndStops = await calculator.CalculateStops(GetRepublicanFighter(), 1000000).FirstAsync();
+            Assert.Equal(-1, shipAndStops.Stops);
+        }
+
+
+        private async IAsyncEnumerable<Starship> GetMilleniumFalcon()
         {
             yield return new Starship
             {
@@ -31,6 +59,23 @@ namespace StarshipResupplyCalculator.Tests
                 Name = "Millennium Falcon"
             };
 
+            await Task.CompletedTask;
+        }
+
+        private async IAsyncEnumerable<Starship> GetRebelTransport()
+        {
+            yield return new Starship
+            {
+                Consumables = "6 months",
+                MGLT = "20",
+                Name = "Rebel Transport"
+            };
+
+            await Task.CompletedTask;
+        }
+
+        private async IAsyncEnumerable<Starship> GetYWing()
+        {
             yield return new Starship
             {
                 Consumables = "1 week",
@@ -38,13 +83,11 @@ namespace StarshipResupplyCalculator.Tests
                 Name = "Y-Wing"
             };
 
-            yield return new Starship
-            {
-                Consumables = "6 months",
-                MGLT = "20",
-                Name = "Rebel transport"
-            };
+            await Task.CompletedTask;
+        }
 
+        private async IAsyncEnumerable<Starship> GetRepublicanCruiser()
+        {
             yield return new Starship
             {
                 Consumables = "2 days",
@@ -52,6 +95,11 @@ namespace StarshipResupplyCalculator.Tests
                 Name = "Republican Cruiser"
             };
 
+            await Task.CompletedTask;
+        }
+
+        private async IAsyncEnumerable<Starship> GetRepublicanFighter()
+        {
             yield return new Starship
             {
                 Consumables = "unknown",
